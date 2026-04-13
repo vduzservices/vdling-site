@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materiais | VD Lingvoinstruisto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:#b7d7c0;
+  --blue:#5f86d6;
+  --violet:#8b87da;
+  --cream:#f8efe1;
+  --cream-2:#f4ebe2;
+  --soft:#e7d9f2;
+  --ink:#22161f;
+  --shadow:rgba(34,22,31,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Quicksand',sans-serif;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(183,215,192,.62), transparent 24%),
+    radial-gradient(circle at 84% 12%, rgba(95,134,214,.24), transparent 26%),
+    radial-gradient(circle at 80% 84%, rgba(139,135,218,.20), transparent 28%),
+    linear-gradient(135deg, #deeee5 0%, #d7e3f3 34%, #e4d9f1 68%, #f6edf2 100%);
+  color:var(--ink);
+  min-height:100vh;
+}
+.page{width:min(100%, 660px);margin:0 auto;padding:24px 14px 42px}
+.topbar,.card,.link,details.block,.nested{
+  background:linear-gradient(180deg, rgba(248,239,225,.98), rgba(244,235,226,.97));
+  border:1px solid rgba(95,134,214,.10);
+  border-radius:24px;
+  box-shadow:0 14px 30px var(--shadow);
+}
+.topbar{padding:14px 18px;text-align:center;font-weight:700;margin-bottom:22px}
+.profile{text-align:center;margin-bottom:24px}
+h1{margin:0 0 10px;font-size:2.18rem;line-height:1.05;font-weight:700;text-align:center}
+.bio{margin:0 auto 18px;max-width:520px;font-size:1.07rem;line-height:1.55;text-align:center}
+.section-title{font-size:1.62rem;font-weight:700;text-align:center;margin:30px 0 16px}
+.card{padding:22px 18px;margin-bottom:20px;text-align:center}
+.card h2{margin:0 0 10px;font-size:1.14rem}
+.card p{margin:0;line-height:1.68;font-size:1.03rem;color:#4c4050}
+.link{display:flex;align-items:center;gap:14px;min-height:86px;padding:16px 18px;margin-bottom:14px;text-decoration:none;color:var(--ink)}
+.label{flex:1;text-align:center;font-weight:700;font-size:1.04rem;line-height:1.4}
+.dots{font-size:1.55rem;opacity:.42}
+details.block, .nested{margin-bottom:14px;overflow:hidden}
+details.block summary, .nested summary{list-style:none;cursor:pointer;padding:18px;text-align:center;font-weight:700;font-size:1.03rem}
+details.block summary::-webkit-details-marker, .nested summary::-webkit-details-marker{display:none}
+.block-body{padding:0 14px 14px;display:flex;flex-direction:column;gap:12px}
+.material-btn,.cta,.back{display:flex;align-items:center;justify-content:center;min-height:66px;padding:14px 16px;border-radius:18px;text-decoration:none;text-align:center;font-weight:700}
+.material-btn{background:rgba(248,239,225,.96);border:1px solid rgba(95,134,214,.10);box-shadow:0 10px 24px rgba(34,22,31,.08);color:var(--ink)}
+.material-btn.disabled{pointer-events:none;opacity:.72}
+.back{display:inline-flex;margin:10px auto 0;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;min-height:auto;padding:12px 18px}
+.plan-text{text-align:center;line-height:1.68;color:#4c4050;padding:0 18px 16px}
+.senha-overlay{position:fixed;inset:0;background:rgba(34,22,31,.42);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.senha-overlay.show{display:flex}
+.senha-modal{width:min(100%,420px);background:linear-gradient(180deg, rgba(248,239,225,.99), rgba(244,235,226,.98));border:1px solid rgba(95,134,214,.10);border-radius:24px;box-shadow:0 18px 40px rgba(34,22,31,.18);padding:22px 18px;text-align:center}
+.senha-modal h3{margin:0 0 10px;font-size:1.28rem}
+.senha-modal p{margin:0 0 14px;line-height:1.55;color:#4c4050}
+.senha-input{width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(95,134,214,.18);background:#fffaf5;font:inherit;color:var(--ink);outline:none}
+.senha-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(95,134,214,.12)}
+.senha-erro{min-height:22px;margin-top:10px;font-size:.95rem;color:#9b2c2c}
+.senha-acoes{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.senha-btn,.senha-cancelar{display:inline-flex;align-items:center;justify-content:center;min-width:128px;padding:12px 16px;border-radius:16px;border:none;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.senha-btn{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff}
+.senha-cancelar{background:rgba(248,239,225,.96);color:var(--ink);border:1px solid rgba(95,134,214,.12)}
+@media (max-width:520px){
+  .page{padding:18px 12px 34px}
+  h1{font-size:1.95rem}
+  .section-title{font-size:1.36rem}
+  .bio{font-size:1rem}
+  .link{min-height:78px;padding:14px 15px}
+  .label{font-size:1rem}
+}
+</style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">VD Lingvoinstruisto</div>
+
+    <section class="profile">
+      <h1>📚 Materiais da prof</h1>
+    </section>
+
+    <section class="card">
+      <h2>Como usar</h2>
+      <p>Escolha o idioma, abra a categoria desejada e acesse o material disponível. Alguns conteúdos estão protegidos por senha.</p>
+    </section>
+
+    <h2 class="section-title">Materiais</h2>
+
+    <details class="block">
+      <summary>Inglês</summary>
+      <div class="block-body">
+        <a class="material-btn disabled" href="#" aria-disabled="true" onclick="return false;">Materiais de inglês em breve</a>
+      </div>
+    </details>
+
+    <details class="block" id="materiais-espanhol" data-locked="true">
+      <summary>Espanhol</summary>
+      <div class="block-body">
+        <details class="nested">
+          <summary>Conjugación de Verbos B1</summary>
+          <div class="block-body">
+            <a class="material-btn" href="https://vdling.vdservices.com.br/materiais/materiais-espanhol/conjugacion-b1/logica-b1/conjugacion-b1" target="_blank" rel="noopener">Lógica Verbos B1</a>
+            <a class="material-btn" href="https://vdling.vdservices.com.br/materiais/materiais-espanhol/conjugacion-b1/juego-verbo-b1" target="_blank" rel="noopener">Juego Memoria Verbos B1</a>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <a class="back" href="index.html">Voltar para a página inicial</a>
+  </main>
+
+  <div class="senha-overlay" id="senhaOverlay" aria-hidden="true">
+    <div class="senha-modal" role="dialog" aria-modal="true" aria-labelledby="senhaTitulo">
+      <h3 id="senhaTitulo">Materiais de espanhol</h3>
+      <p>Digite a senha para abrir este conteúdo.</p>
+      <input class="senha-input" id="senhaInput" type="password" placeholder="Senha" autocomplete="off">
+      <div class="senha-erro" id="senhaErro"></div>
+      <div class="senha-acoes">
+        <button class="senha-btn" id="senhaConfirmar" type="button">Entrar</button>
+        <button class="senha-cancelar" id="senhaCancelar" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const bloco = document.getElementById('materiais-espanhol');
+  if (!bloco) return;
+  const summary = bloco.querySelector('summary');
+  const overlay = document.getElementById('senhaOverlay');
+  const input = document.getElementById('senhaInput');
+  const erro = document.getElementById('senhaErro');
+  const confirmar = document.getElementById('senhaConfirmar');
+  const cancelar = document.getElementById('senhaCancelar');
+  const senhaCorreta = 'VD2026';
+  let liberado = false;
+
+  function abrirModal() {
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    erro.textContent = '';
+    input.value = '';
+    setTimeout(() => input.focus(), 50);
+  }
+
+  function fecharModal() {
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function validarSenha() {
+    if (input.value === senhaCorreta) {
+      liberado = true;
+      fecharModal();
+      bloco.open = true;
+      bloco.removeAttribute('data-locked');
+    } else {
+      erro.textContent = 'Senha incorreta. Tente novamente.';
+      input.focus();
+      input.select();
+    }
+  }
+
+  summary.addEventListener('click', function (e) {
+    if (liberado) return;
+    e.preventDefault();
+    abrirModal();
+  });
+
+  confirmar.addEventListener('click', validarSenha);
+  cancelar.addEventListener('click', fecharModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) fecharModal();
+  });
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') validarSenha();
+    if (e.key === 'Escape') fecharModal();
+  });
+});
+</script>
+</body>
+</html>
