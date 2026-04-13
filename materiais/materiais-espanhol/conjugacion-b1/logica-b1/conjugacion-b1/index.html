@@ -429,7 +429,19 @@
         font-size: 22px;
       }
     }
-  </style>
+  
+.verb-ring{display:inline-block;padding:0 6px;border:2px solid var(--purple-strong);border-radius:999px;line-height:1.25;background:rgba(255,255,255,.6);font-weight:700}
+.analysis-button{display:inline-flex;align-items:center;justify-content:center;border:none;cursor:pointer;background-image:var(--gradient-main);color:#fff;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:700;box-shadow:0 8px 18px rgba(59,39,102,.22);transition:transform .15s ease, box-shadow .15s ease}
+.analysis-button:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(59,39,102,.28)}
+.analysis-actions{display:flex;justify-content:center;margin-top:14px}
+.analysis-note{margin-top:10px;font-size:12px;color:var(--text-muted);text-align:center}
+.analysis-card .example-card{font-size:13px}
+.analysis-card .analysis-meta{margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.45}
+
+.home-link-wrap{position:absolute; inset-inline:0; bottom:10px; display:flex; justify-content:center; pointer-events:none; z-index:3}
+.home-link{pointer-events:auto; display:inline-flex; align-items:center; justify-content:center; padding:8px 16px; border-radius:999px; background:#ffffff; color:var(--purple-strong); border:1px solid var(--card-border); box-shadow:0 8px 18px rgba(59,39,102,.18); font-size:12px; font-weight:700; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease}
+.home-link:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(59,39,102,.24)}
+@media (max-width: 800px){.nav{bottom:58px}.home-link-wrap{bottom:10px}.home-link{font-size:11px;padding:8px 14px}}</style>
 </head>
 <body>
 <div class="deck">
@@ -501,17 +513,47 @@
 <div class="card">
 <div class="tag">Paso 1 · Idea central</div>
 <h2 class="title">¿Qué es conjugar un verbo?</h2>
-<p>
-          Conjugar un verbo es cambiar su forma para mostrar <strong>quién</strong> hace
-          la acción, <strong>cuándo</strong> pasa y <strong>cómo</strong> ocurre. El verbo varía según la
-          <strong>persona</strong> (como yo), el <strong>número</strong> (como singular), el <strong>tiempo</strong> (como presente, pasado)
-          y el <strong>modo</strong> (como indicativo, subjuntivo, imperativo). El
-          <strong>infinitivo</strong> es la forma neutra: <em>hablar, comer, vivir</em>. El verbo
-          conjugado es utilizado en el cotidiano como <em>hablo, comí, vivía</em>. En esta aula usamos verbos
-          <strong>regulares</strong>, de <strong>cambio de radical</strong>, <strong>irregulares</strong>,
-          <strong>pronominales</strong> (<em>levantarse</em>) y de <strong>estructura especial</strong>
-          (<em>gustar, encantar, doler</em>) para entender la lógica de conjugación.
-        </p>
+<p style="margin-bottom:14px;">
+    Conjugar un verbo es cambiar su forma para mostrar <strong>quién</strong> hace la acción,
+    <strong>cuándo</strong> pasa y con qué <strong>intención</strong> se dice.
+  </p>
+<div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:12px;">
+<div style="border:1px solid var(--card-border); border-radius:18px; padding:14px; background:rgba(255,255,255,.72);">
+<div style="font-weight:800; color:var(--purple-strong); margin-bottom:6px;">Quién</div>
+<div style="font-size:14px; line-height:1.5;">La <strong>persona</strong>: yo, tú, él, nosotros...</div>
+<div style="margin-top:6px; font-size:13px; color:var(--text-muted);">Ej.: <strong>hablo</strong>, <strong>hablas</strong>, <strong>hablan</strong>.</div>
+</div>
+<div style="border:1px solid var(--card-border); border-radius:18px; padding:14px; background:rgba(255,255,255,.72);">
+<div style="font-weight:800; color:var(--purple-strong); margin-bottom:6px;">Cuándo</div>
+<div style="font-size:14px; line-height:1.5;">El <strong>tiempo</strong>: ahora, antes o después.</div>
+<div style="margin-top:6px; font-size:13px; color:var(--text-muted);">Ej.: <strong>estudio</strong>, <strong>estudié</strong>, <strong>estudiaré</strong>.</div>
+</div>
+</div>
+<div style="margin-top:14px; padding:14px; border:1px solid var(--card-border); border-radius:18px; background:linear-gradient(180deg, rgba(183,125,255,.10), rgba(77,167,217,.08));">
+<div style="font-weight:800; color:var(--purple-strong); margin-bottom:6px;">¿Qué es el modo?</div>
+<div style="font-size:14px; line-height:1.55;">
+      El <strong>modo</strong> es la <strong>intención</strong> de la frase.
+      Pregunta fácil: ¿quieres <strong>informar</strong>, <strong>imaginar o desear</strong>, o <strong>mandar o pedir</strong>?
+    </div>
+</div>
+<div style="margin-top:14px; font-weight:800; color:var(--purple-strong); font-size:16px;">Nombres de los modos + ejemplo</div>
+<div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:10px;">
+<div style="border:2px solid var(--card-border); border-radius:16px; padding:12px; background:rgba(255,255,255,.82);">
+<div style="font-weight:800; color:var(--purple-strong); margin-bottom:6px;">1. Indicativo</div>
+<div style="font-size:13px; line-height:1.45;">Se usa para <strong>informar</strong> un hecho.</div>
+<div style="margin-top:6px; font-size:12px; color:var(--text-muted);">Ej.: Yo <strong>estudio</strong> español.</div>
+</div>
+<div style="border:2px solid var(--card-border); border-radius:16px; padding:12px; background:rgba(255,255,255,.82);">
+<div style="font-weight:800; color:var(--purple-strong); margin-bottom:6px;">2. Subjuntivo</div>
+<div style="font-size:13px; line-height:1.45;">Se usa para <strong>desear</strong>, <strong>dudar</strong> o <strong>imaginar</strong>.</div>
+<div style="margin-top:6px; font-size:12px; color:var(--text-muted);">Ej.: Ojalá <strong>estudie</strong> hoy.</div>
+</div>
+<div style="border:2px solid var(--card-border); border-radius:16px; padding:12px; background:rgba(255,255,255,.82);">
+<div style="font-weight:800; color:var(--purple-strong); margin-bottom:6px;">3. Imperativo</div>
+<div style="font-size:13px; line-height:1.45;">Se usa para <strong>mandar</strong> o <strong>pedir</strong> algo.</div>
+<div style="margin-top:6px; font-size:12px; color:var(--text-muted);">Ej.: <strong>Estudia</strong> ahora.</div>
+</div>
+</div>
 </div>
 </section>
 <!-- SLIDE 3 – Estructura de la conjugación -->
@@ -781,6 +823,52 @@
 <span class="es">8) Cuando tengo tiempo libre, veo el partido, digo lo que pienso y comparto estrategias con mis amigos.</span>
 </div>
 </div>
+<div style="margin-top:14px;"></div>
+<div class="analysis-actions">
+<button class="analysis-button" id="open-analysis-btn" type="button">Análisis de verbos</button>
+</div>
+<p class="analysis-note">Abre un slide extra con las mismas frases, señalando los verbos y su clasificación.</p>
+</div>
+</section>
+<section class="slide" data-optional="analysis" data-slide="8b" style="display:none;">
+<div class="card analysis-card">
+<div class="tag">Paso 6 · Análisis</div>
+<h2 class="title">Análisis de verbos</h2>
+<p class="muted">Las mismas frases del slide 8, con los verbos rodeados y clasificados por <strong>persona</strong>, <strong>tiempo</strong> y <strong>modo</strong>.</p>
+<div class="examples-row">
+<div class="example-card">
+<span class="es">1) <span class="verb-ring">Juego</span> al FIFA casi todos los días y <span class="verb-ring">hablo</span> con mis colegas por chat de voz.</span>
+<div class="analysis-meta"><strong>Juego</strong> → persona: yo; tiempo: presente; modo: indicativo. · <strong>hablo</strong> → persona: yo; tiempo: presente; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">2) Ayer <span class="verb-ring">jugué</span> un partidazo en línea y <span class="verb-ring">dormí</span> tardísimo después de la partida.</span>
+<div class="analysis-meta"><strong>jugué</strong> → persona: yo; tiempo: pretérito perfecto simple; modo: indicativo. · <strong>dormí</strong> → persona: yo; tiempo: pretérito perfecto simple; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">3) En el estadio <span class="verb-ring">como</span> un bocadillo mientras <span class="verb-ring">veo</span> el partido en la pantalla gigante.</span>
+<div class="analysis-meta"><strong>como</strong> → persona: yo; tiempo: presente; modo: indicativo. · <strong>veo</strong> → persona: yo; tiempo: presente; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">4) <span class="verb-ring">He leído</span> una guía del juego y <span class="verb-ring">he aprendido</span> trucos para probar nuevas estrategias con mi equipo.</span>
+<div class="analysis-meta"><strong>He leído</strong> → persona: yo; tiempo: pretérito perfecto compuesto; modo: indicativo. · <strong>he aprendido</strong> → persona: yo; tiempo: pretérito perfecto compuesto; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">5) Cuando <span class="verb-ring">estuve</span> muy nervioso con la partida, <span class="verb-ring">quise</span> huir, pero <span class="verb-ring">jugué</span> tranquilo todo el partido.</span>
+<div class="analysis-meta"><strong>estuve</strong> → persona: yo; tiempo: pretérito perfecto simple; modo: indicativo. · <strong>quise</strong> → persona: yo; tiempo: pretérito perfecto simple; modo: indicativo. · <strong>jugué</strong> → persona: yo; tiempo: pretérito perfecto simple; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">6) <span class="verb-ring">Me encanta</span> jugar videojuegos cuando no <span class="verb-ring">estoy jugando</span> al fútbol con mis colegas.</span>
+<div class="analysis-meta"><strong>Me encanta</strong> → persona: él / ella / usted; tiempo: presente; modo: indicativo. · <strong>estoy jugando</strong> → persona: yo; tiempo: presente continuo; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">7) Últimamente <span class="verb-ring">he visto</span> mogollón de partidos y <span class="verb-ring">he escrito</span> comentarios sobre el juego en mi cuaderno.</span>
+<div class="analysis-meta"><strong>he visto</strong> → persona: yo; tiempo: pretérito perfecto compuesto; modo: indicativo. · <strong>he escrito</strong> → persona: yo; tiempo: pretérito perfecto compuesto; modo: indicativo.</div>
+</div>
+<div class="example-card">
+<span class="es">8) Cuando <span class="verb-ring">tengo</span> tiempo libre, <span class="verb-ring">veo</span> el partido, <span class="verb-ring">digo</span> lo que pienso y <span class="verb-ring">comparto</span> estrategias con mis amigos.</span>
+<div class="analysis-meta"><strong>tengo</strong> → persona: yo; tiempo: presente; modo: indicativo. · <strong>veo</strong> → persona: yo; tiempo: presente; modo: indicativo. · <strong>digo</strong> → persona: yo; tiempo: presente; modo: indicativo. · <strong>comparto</strong> → persona: yo; tiempo: presente; modo: indicativo.</div>
+</div>
+</div>
 </div>
 </section>
 <!-- SLIDE 8 – Errores comunes -->
@@ -976,6 +1064,9 @@
 </div>
 </section>
 </div>
+<div class="home-link-wrap">
+<a class="home-link" href="https://vdling.vdservices.com.br" rel="noopener noreferrer" target="_self">Voltar à página inicial</a>
+</div>
 <div class="nav">
 <div class="nav-inner">
 <button aria-label="Slide anterior" onclick="changeSlide(-1)" type="button">
@@ -989,42 +1080,61 @@
 </div>
 </div>
 <script>
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    let currentIndex = 0;
-
+    let analysisEnabled = false;
+    const analysisSlide = document.querySelector('[data-optional="analysis"]');
     const dotsContainer = document.getElementById('nav-dots');
     const counterEl = document.getElementById('nav-counter');
+    let slides = [];
+    let currentIndex = 0;
 
-    slides.forEach((_, idx) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot' + (idx === 0 ? ' active' : '');
-      dot.dataset.index = idx;
-      dot.addEventListener('click', () => goToSlide(idx));
-      dotsContainer.appendChild(dot);
-    });
+    function visibleSlides() {
+      return Array.from(document.querySelectorAll('.slide')).filter((slide) => slide.style.display !== 'none');
+    }
+
+    function renderDots() {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (idx === currentIndex ? ' active' : '');
+        dot.dataset.index = idx;
+        dot.addEventListener('click', () => goToSlide(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function refreshSlides() {
+      slides = visibleSlides();
+      if (currentIndex >= slides.length) currentIndex = slides.length - 1;
+      if (currentIndex < 0) currentIndex = 0;
+      renderDots();
+      updateNav();
+    }
 
     function updateNav() {
       const dots = Array.from(document.querySelectorAll('.dot'));
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === currentIndex);
-      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
       counterEl.textContent = `${currentIndex + 1} / ${slides.length}`;
     }
 
     function goToSlide(index) {
+      refreshSlides();
       if (index < 0 || index >= slides.length) return;
-      slides[currentIndex].classList.remove('active');
+      document.querySelectorAll('.slide.active').forEach((slide) => slide.classList.remove('active'));
       currentIndex = index;
       slides[currentIndex].classList.add('active');
       updateNav();
     }
 
     function changeSlide(delta) {
+      refreshSlides();
       let next = currentIndex + delta;
       if (next < 0) next = slides.length - 1;
       if (next >= slides.length) next = 0;
       goToSlide(next);
     }
+
+    window.changeSlide = changeSlide;
+    window.goToSlide = goToSlide;
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
@@ -1037,11 +1147,24 @@
       }
     });
 
-    // Lógica de corrección interactiva
+    const analysisBtn = document.getElementById('open-analysis-btn');
+    if (analysisBtn && analysisSlide) {
+      analysisBtn.addEventListener('click', () => {
+        analysisEnabled = true;
+        analysisSlide.style.display = '';
+        const fromSlide = visibleSlides().findIndex((slide) => slide.getAttribute('data-slide') === '8');
+        refreshSlides();
+        const target = slides.findIndex((slide) => slide.getAttribute('data-slide') === '8b');
+        if (fromSlide >= 0 && slides[fromSlide]) slides[fromSlide].classList.remove('active');
+        goToSlide(target);
+      });
+    }
+
+    refreshSlides();
+
     function handleChoiceClick(event) {
       const btn = event.target;
       if (!btn.classList.contains('choice')) return;
-
       const row = btn.closest('.exercise-row');
       if (!row) return;
       const feedbackId = row.getAttribute('data-feedback-id');
@@ -1070,6 +1193,6 @@
     }
 
     document.addEventListener('click', handleChoiceClick);
-  </script>
+    </script>
 </body>
 </html>
