@@ -438,10 +438,10 @@
 .analysis-card .example-card{font-size:13px}
 .analysis-card .analysis-meta{margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.45}
 
-.home-link-wrap{position:absolute; inset-inline:0; bottom:18px; display:flex; justify-content:center; pointer-events:none; z-index:2}
+.home-link-wrap{position:static;display:flex;justify-content:center;pointer-events:none;z-index:2}
 .home-link{pointer-events:auto; display:inline-flex; align-items:center; justify-content:center; padding:8px 16px; border-radius:999px; background:#ffffff; color:var(--purple-strong); border:1px solid var(--card-border); box-shadow:0 8px 18px rgba(59,39,102,.18); font-size:12px; font-weight:700; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease}
 .home-link:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(59,39,102,.24)}
-@media (max-width: 800px){.grid-2, .grid-3, .examples-row, .two-col-list{grid-template-columns:minmax(0, 1fr)}.slide{padding:32px 18px 210px}.card{padding:20px 18px;max-height:calc(100vh - 280px)}.title{font-size:22px}.nav{bottom:92px}.home-link-wrap{bottom:18px}.home-link{font-size:11px;padding:8px 14px}}.home-link-wrap{position:absolute; inset-inline:0; bottom:18px; display:flex; justify-content:center; pointer-events:none; z-index:2}.home-link{font-size:11px;padding:8px 14px}}</style>
+@media (max-width: 800px){.grid-2, .grid-3, .examples-row, .two-col-list{grid-template-columns:minmax(0, 1fr)}.slide{padding:32px 18px 220px}.card{padding:20px 18px;max-height:calc(100vh - 290px)}.title{font-size:22px}.home-link{font-size:11px;padding:8px 14px}.bottom-ui{bottom:18px;gap:14px}}.home-link-wrap{position:static;display:flex;justify-content:center;pointer-events:none;z-index:2}.home-link{font-size:11px;padding:8px 14px}}.bottom-ui{position:absolute;inset-inline:0;bottom:18px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:4;pointer-events:none}.bottom-ui .nav-inner,.bottom-ui .home-link{pointer-events:auto}</style>
 </head>
 <body>
 <div class="deck">
@@ -1063,11 +1063,7 @@
 </div>
 </div>
 </section>
-</div>
-<div class="home-link-wrap">
-<a class="home-link" href="https://vdling.vdservices.com.br" rel="noopener noreferrer" target="_self">Voltar à página inicial</a>
-</div>
-<div class="nav">
+<div class="bottom-ui"><div class="nav">
 <div class="nav-inner">
 <button aria-label="Slide anterior" onclick="changeSlide(-1)" type="button">
         ‹
@@ -1078,7 +1074,11 @@
       </button>
 <div class="nav-counter" id="nav-counter">1 / 11</div>
 </div>
-</div>
+</div><div class="home-link-wrap">
+<a class="home-link" href="https://vdling.vdservices.com.br" rel="noopener noreferrer" target="_self">Voltar à página inicial</a>
+</div></div></div>
+
+
 <script>
     let analysisEnabled = false;
     const analysisSlide = document.querySelector('[data-optional="analysis"]');
