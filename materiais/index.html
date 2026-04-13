@@ -134,15 +134,19 @@ details.block summary::-webkit-details-marker, .nested summary::-webkit-details-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const bloco = document.getElementById('materiais-espanhol');
-  if (!bloco) return;
-  const summary = bloco.querySelector('summary');
   const overlay = document.getElementById('senhaOverlay');
   const input = document.getElementById('senhaInput');
   const erro = document.getElementById('senhaErro');
   const confirmar = document.getElementById('senhaConfirmar');
   const cancelar = document.getElementById('senhaCancelar');
-  const senhaCorreta = 'VD2026';
+  const senhaCorreta = 'VDESPANHA';
   let liberado = false;
+
+  if (!bloco || !overlay || !input || !erro || !confirmar || !cancelar) return;
+
+  const summary = bloco.querySelector('summary');
+  const body = bloco.querySelector('.block-body');
+  if (body) body.style.display = 'none';
 
   function abrirModal() {
     overlay.classList.add('show');
@@ -157,12 +161,17 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.setAttribute('aria-hidden', 'true');
   }
 
+  function liberarConteudo() {
+    liberado = true;
+    bloco.open = true;
+    bloco.removeAttribute('data-locked');
+    if (body) body.style.display = 'flex';
+  }
+
   function validarSenha() {
-    if (input.value === senhaCorreta) {
-      liberado = true;
+    if ((input.value || '').trim() === senhaCorreta) {
+      liberarConteudo();
       fecharModal();
-      bloco.open = true;
-      bloco.removeAttribute('data-locked');
     } else {
       erro.textContent = 'Senha incorreta. Tente novamente.';
       input.focus();
@@ -171,9 +180,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   summary.addEventListener('click', function (e) {
-    if (liberado) return;
+    if (!liberado) {
+      e.preventDefault();
+      abrirModal();
+      return;
+    }
+    bloco.open = !bloco.open;
+    if (body) body.style.display = bloco.open ? 'flex' : 'none';
     e.preventDefault();
-    abrirModal();
   });
 
   confirmar.addEventListener('click', validarSenha);
