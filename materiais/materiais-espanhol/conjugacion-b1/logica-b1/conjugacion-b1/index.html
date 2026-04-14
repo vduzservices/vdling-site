@@ -11,21 +11,9 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
-    :root {
-      /* Paleta inspirada en el logo VD Lingvoinstruisto */
-      --bg-page: #e9f0ff;            /* azul-lila muy claro del fondo */
-      --card-bg: #ffffff;
-      --card-border: #c8b5ff;       /* lila suave del contorno */
-      --card-shadow: 0 14px 30px rgba(60, 50, 140, 0.18);
-      --purple-strong: #3b2766;     /* tono oscuro de contornos del logo */
-      --purple-soft: #b89be9;       /* lila pastel */
-      --gradient-main: linear-gradient(135deg, #4da7d9, #b77dff); /* azul→lila como el arco exterior */
-      --text-main: #1f2430;
-      --text-muted: #6b7280;
-      --accent-success: #1b9c6c;    /* verde inspirado en estrellas y detalles */
-      --accent-warning: #f7a963;    /* toque melocotón del libro */
-      --accent-danger: #dc2626;
-    }
+    
+:root{--bg-page:#e9f0ff;--card-bg:#ffffff;--card-border:#c8b5ff;--card-shadow:0 14px 30px rgba(60, 50, 140, 0.18);--purple-strong:#3b2766;--purple-soft:#b89be9;--gradient-main:linear-gradient(135deg, #4da7d9, #b77dff);--text-main:#1f2430;--text-muted:#6b7280;--accent-success:#1b9c6c;--accent-warning:#f7a963;--accent-danger:#dc2626;--bottom-safe:max(10px, env(safe-area-inset-bottom, 0px));--bottom-gap:clamp(10px, 1.6vh, 16px);--gap-nav-home:clamp(12px, 2vh, 22px);--gap-content-nav:clamp(18px, 3vh, 32px);--nav-zone:clamp(44px, 7vh, 60px);--home-zone:clamp(38px, 5.5vh, 48px);--bottom-reserve:calc(var(--bottom-safe) + var(--bottom-gap) + var(--home-zone) + var(--gap-nav-home) + var(--nav-zone) + var(--gap-content-nav));}
+
 
     * {
       box-sizing: border-box;
@@ -51,18 +39,7 @@
       overflow: hidden;
     }
 
-    .slide {
-      position: absolute;
-      inset: 0;
-      padding: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transform: translateX(40px) scale(0.98);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      pointer-events: none;
-    }
+    .slide{position:absolute;inset:0;padding:32px 32px var(--bottom-reserve);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(40px) scale(0.98);transition:opacity 0.5s ease, transform 0.5s ease;pointer-events:none}
 
     .slide.active {
       opacity: 1;
@@ -70,17 +47,7 @@
       pointer-events: auto;
     }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      border: 2px solid var(--card-border);
-      box-shadow: var(--card-shadow);
-      padding: 28px 32px;
-      max-width: 1080px;
-      width: 100%;
-      max-height: calc(100vh - 96px);
-      overflow-y: auto;
-    }
+    .card{background:var(--card-bg);border-radius:24px;border:2px solid var(--card-border);box-shadow:var(--card-shadow);padding:28px 32px;max-width:1080px;width:100%;max-height:100%;overflow-y:auto}
 
     .card::-webkit-scrollbar {
       width: 8px;
@@ -242,27 +209,9 @@
       font-weight: 600;
     }
 
-    .nav {
-      position: absolute;
-      inset-inline: 0;
-      bottom: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      pointer-events: none;
-    }
+    .nav{position:absolute;inset-inline:0;bottom:calc(var(--bottom-safe) + var(--bottom-gap) + var(--home-zone) + var(--gap-nav-home));display:flex;align-items:center;justify-content:center;gap:16px;pointer-events:none;z-index:4}
 
-    .nav-inner {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(18, 24, 38, 0.14);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.28);
-      pointer-events: auto;
-    }
+    .nav-inner{display:inline-flex;align-items:center;gap:12px;min-height:var(--nav-zone);padding:6px 14px;border-radius:999px;background:rgba(18, 24, 38, 0.14);box-shadow:0 10px 24px rgba(15, 23, 42, 0.28);pointer-events:auto}
 
     .nav button {
       width: 32px;
@@ -415,13 +364,16 @@
       font-weight: 600;
     }
 
-    @media (max-width: 800px) {
-      .grid-2,
-      .grid-3,
-      .examples-row,
-      .two-col-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    
+@media (max-width: 800px){
+  .grid-2, .grid-3, .examples-row, .two-col-list{grid-template-columns:minmax(0,1fr)}
+  .slide{padding:20px 18px var(--bottom-reserve)}
+  .card{padding:20px 18px;max-height:100%}
+  .title{font-size:22px}
+  .nav-inner{gap:10px;padding:6px 12px}
+  .home-link{font-size:11px;padding:8px 14px;max-width:min(92vw, 320px)}
+}
+
       .card {
         padding: 20px 18px;
       }
@@ -438,10 +390,19 @@
 .analysis-card .example-card{font-size:13px}
 .analysis-card .analysis-meta{margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.45}
 
-.home-link-wrap{position:static;display:flex;justify-content:center;pointer-events:none;z-index:2}
-.home-link{pointer-events:auto; display:inline-flex; align-items:center; justify-content:center; padding:8px 16px; border-radius:999px; background:#ffffff; color:var(--purple-strong); border:1px solid var(--card-border); box-shadow:0 8px 18px rgba(59,39,102,.18); font-size:12px; font-weight:700; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease}
+.home-link-wrap{position:absolute;inset-inline:0;bottom:calc(var(--bottom-safe) + var(--bottom-gap));display:flex;justify-content:center;pointer-events:none;z-index:3}
+.home-link{pointer-events:auto;display:inline-flex;align-items:center;justify-content:center;min-height:var(--home-zone);padding:8px 18px;border-radius:999px;background:#ffffff;color:var(--purple-strong);border:1px solid var(--card-border);box-shadow:0 8px 18px rgba(59,39,102,.18);font-size:12px;font-weight:700;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease;white-space:nowrap}
 .home-link:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(59,39,102,.24)}
-@media (max-width: 800px){.grid-2, .grid-3, .examples-row, .two-col-list{grid-template-columns:minmax(0, 1fr)}.slide{padding:32px 18px 220px}.card{padding:20px 18px;max-height:calc(100vh - 290px)}.title{font-size:22px}.home-link{font-size:11px;padding:8px 14px}.bottom-ui{bottom:18px;gap:14px}}.home-link-wrap{position:static;display:flex;justify-content:center;pointer-events:none;z-index:2}.home-link{font-size:11px;padding:8px 14px}}.bottom-ui{position:absolute;inset-inline:0;bottom:18px;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:4;pointer-events:none}.bottom-ui .nav-inner,.bottom-ui .home-link{pointer-events:auto}</style>
+
+@media (max-width: 800px){
+  .grid-2, .grid-3, .examples-row, .two-col-list{grid-template-columns:minmax(0,1fr)}
+  .slide{padding:20px 18px var(--bottom-reserve)}
+  .card{padding:20px 18px;max-height:100%}
+  .title{font-size:22px}
+  .nav-inner{gap:10px;padding:6px 12px}
+  .home-link{font-size:11px;padding:8px 14px;max-width:min(92vw, 320px)}
+}
+.slide{position:absolute;inset:0;padding:32px 32px var(--bottom-reserve);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(40px) scale(0.98);transition:opacity 0.5s ease, transform 0.5s ease;pointer-events:none}.title{font-size:22px}.nav{position:absolute;inset-inline:0;bottom:calc(var(--bottom-safe) + var(--bottom-gap) + var(--home-zone) + var(--gap-nav-home));display:flex;align-items:center;justify-content:center;gap:16px;pointer-events:none;z-index:4}}.home-link-wrap{position:absolute;inset-inline:0;bottom:calc(var(--bottom-safe) + var(--bottom-gap));display:flex;justify-content:center;pointer-events:none;z-index:3}.home-link{pointer-events:auto;display:inline-flex;align-items:center;justify-content:center;min-height:var(--home-zone);padding:8px 18px;border-radius:999px;background:#ffffff;color:var(--purple-strong);border:1px solid var(--card-border);box-shadow:0 8px 18px rgba(59,39,102,.18);font-size:12px;font-weight:700;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease;white-space:nowrap}}</style>
 </head>
 <body>
 <div class="deck">
@@ -1063,7 +1024,11 @@
 </div>
 </div>
 </section>
-<div class="bottom-ui"><div class="nav">
+</div>
+<div class="home-link-wrap">
+<a class="home-link" href="https://vdling.vdservices.com.br" rel="noopener noreferrer" target="_self">Voltar à página inicial</a>
+</div>
+<div class="nav">
 <div class="nav-inner">
 <button aria-label="Slide anterior" onclick="changeSlide(-1)" type="button">
         ‹
@@ -1074,11 +1039,7 @@
       </button>
 <div class="nav-counter" id="nav-counter">1 / 11</div>
 </div>
-</div><div class="home-link-wrap">
-<a class="home-link" href="https://vdling.vdservices.com.br" rel="noopener noreferrer" target="_self">Voltar à página inicial</a>
-</div></div></div>
-
-
+</div>
 <script>
     let analysisEnabled = false;
     const analysisSlide = document.querySelector('[data-optional="analysis"]');
